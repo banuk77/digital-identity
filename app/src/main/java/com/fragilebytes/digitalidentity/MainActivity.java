@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mMainLayout = findViewById(R.id.main_frame);
         mStampImg = findViewById(R.id.stampImg);
+        mStampImg.setImageResource(R.drawable.stamp_certified);
     }
 
 
