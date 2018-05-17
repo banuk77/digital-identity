@@ -20,12 +20,30 @@ public class MainActivity extends AppCompatActivity {
         mMainLayout = findViewById(R.id.main_frame);
         mStampImg = findViewById(R.id.stamp_img);
         mStampImg.setImageResource(R.drawable.stamp_certified);
+
+        Intent intent = getIntent();
+        String action = intent.getAction();
+        String type = intent.getType();
+
+        if (Intent.ACTION_SEND.equals(action) && type != null) {
+            if ("text/plain".equals(type)) {
+                handleSendText(intent);
+            }
+        }
+
         startJourney();
     }
 
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
+    }
+
+    private void handleSendText(Intent intent) {
+        String sharedText = intent.getStringExtra(Intent.EXTRA_TEXT);
+        if (sharedText != null) {
+
+        }
     }
 
     public void OnClickOutside(View view) {
